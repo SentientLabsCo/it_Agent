@@ -1,7 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:it_agent/screens/main_screen.dart';
 import 'package:it_agent/utils/colors.dart';
 import 'package:it_agent/widgets/custom_button.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,13 +23,15 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
+  void handleLogin() {
+    //Here goes the authentication
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          gradient: backgoundGradient
-        ),
+        decoration: BoxDecoration(gradient: backgoundGradient),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -39,6 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     textStyle: const TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
+                      color: Colors.blue,
                     ),
                   ),
                 ],
@@ -54,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _emailController,
                   decoration: InputDecoration(
                     labelText: 'Work Email',
-                    hintText: 'Enter your work email',
+                    labelStyle: TextStyle(color: Colors.white),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -67,13 +72,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: true,
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    hintText: 'Enter your password',
+                    labelStyle: TextStyle(color: Colors.white),
                     border: OutlineInputBorder(),
                   ),
                 ),
               ),
               const SizedBox(height: 100),
-              CustomButton(text: 'Sign in', height: 50, width: 440),
+              CustomButton(
+                text: 'Sign in',
+                height: 50,
+                width: 440,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MainScreen()),
+                  );
+                },
+              ),
             ],
           ),
         ),
