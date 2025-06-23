@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:it_agent/utils/colors.dart';
+import 'package:it_agent/screens/home_view.dart';
+import 'package:it_agent/screens/browse_view.dart';
+import 'package:it_agent/screens/notification_view.dart';
+import 'package:it_agent/screens/history_view.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -12,10 +15,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int selectedIndex = 0;
   final List<Widget> screens = [
-    const Center(child: Text("Home", style: TextStyle(fontSize: 28))),
-    const Center(child: Text("Browse", style: TextStyle(fontSize: 28))),
-    const Center(child: Text("Notification", style: TextStyle(fontSize: 28))),
-    const Center(child: Text("History", style: TextStyle(fontSize: 28))),
+    HomeView(),
+    BrowseView(),
+    NotificationView(),
+    HistoryView(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -80,22 +83,5 @@ class _MainScreenState extends State<MainScreen> {
         });
         },
     );
-  }
-}
-
-String getGreetings() {
-  final hour = DateTime.now().hour;
-
-  switch (hour) {
-    case >= 4 && < 12:
-      return "Good Morning!";
-    case >= 12 && < 17:
-      return "Good Afternoon!";
-    case >= 17 && < 21:
-      return "Good Evening!";
-    case >= 21 && <= 23:
-      return "Good Night!";
-    default:
-      return "Hello!";
   }
 }
