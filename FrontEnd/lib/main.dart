@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_agent/screens/login_screen.dart';
+import 'package:it_agent/screens/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +16,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      routes: {
-        '/': (context) => const LoginScreen(),
-      },
+      // routes: {
+      //   '/': (context) => const LoginScreen(),
+      // },
+      home: const MainScreen(),
     );
   }
 }
