@@ -28,19 +28,19 @@ class _MainScreenState extends State<MainScreen> {
           //Sidebar Area
           Container(
             width: 220,
-            color: const Color(0xFF000322),
+            color: drawerColor,
             child: Column(
               children: [
                 const SizedBox(height: 50),
                 const Text(
                   "IT Assistant",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: fontColor,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Divider(color: Color.fromRGBO(7, 12, 58, 1.0)),
+                Divider(color: backgroundColor),
                 _buildMenuItem(Icons.home, "Home", 0),
                 _buildMenuItem(Icons.folder_rounded, "Browse", 1),
                 _buildMenuItem(Icons.notifications, "Notification", 2),
@@ -51,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
           //Screen Area
           Expanded(
             child: Container(
-              decoration: BoxDecoration(gradient: backgoundGradient),
+              decoration: BoxDecoration(gradient: backgroundGradient),
               child: IndexedStack(
                 index: selectedIndex,
                 children: screens,
@@ -68,11 +68,11 @@ class _MainScreenState extends State<MainScreen> {
 
     return ListTile(
       hoverColor: Colors.blue,
-      leading: Icon(icon, color: isSelected ? Colors.blue : Colors.white,),
+      leading: Icon(icon, color: isSelected ? Colors.blue :fontColor,),
       title: Text(
         label,
         style: TextStyle(
-          color: isSelected ? Colors.blue : Colors.white,
+          color: isSelected ? Colors.blue : fontColor,
           fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
         ),
       ),

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 const backgroundColor = Color.fromRGBO(0, 4, 32, 1.0);
 const Color buttonColor = Color(0xFF1A237E);
-const footerColor = Color.fromRGBO(26, 26, 26, 1);
-const secondaryBackgroundColor = Color.fromRGBO(46, 46, 46, 1);
+const chipColor = Color(0xFF2C2C40);
+const fontColor = Color(0xFFE7DECC);
+const drawerColor = Color(0xFF2C2C40);
 
-final backgoundGradient = LinearGradient(
+final backgroundGradient = LinearGradient(
   begin: Alignment.topLeft,
   end:  Alignment.bottomRight,
   colors: [
