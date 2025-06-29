@@ -20,6 +20,11 @@ class _ChatInputBarState extends State<ChatInputBar> {
   String selectedValue = dropDownItem[0];
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12),
@@ -39,7 +44,7 @@ class _ChatInputBarState extends State<ChatInputBar> {
                   controller: widget.textController,
                   style: const TextStyle(color: Colors.white),
                   decoration: const InputDecoration(
-                    hintText: "Message Copilot",
+                    hintText: "Type your command...",
                     hintStyle: TextStyle(color: Colors.white54),
                     border: InputBorder.none,
                   ),
@@ -47,11 +52,7 @@ class _ChatInputBarState extends State<ChatInputBar> {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.add, color: Colors.white),
-                onPressed: () {}, // Can later open attachments
-              ),
-              IconButton(
-                icon: const Icon(Icons.mic, color: Colors.white),
+                icon: const Icon(Icons.send_rounded, color: Colors.white),
                 onPressed: () {}, // Voice input
               ),
             ]
