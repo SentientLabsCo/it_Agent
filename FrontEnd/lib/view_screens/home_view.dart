@@ -47,7 +47,6 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     final greeting = getGreetings();
-
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
