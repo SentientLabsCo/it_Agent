@@ -11,9 +11,9 @@ class CategoryButton extends StatelessWidget {
     super.key,
     required this.text,
     this.onPressed,
-    this.backgroundColor = const Color(0xFF2D2D2D),
+    this.backgroundColor = const Color(0xFF01072C),
     this.textColor = Colors.white,
-    this.borderColor = const Color(0xFF404040),
+    this.borderColor = const Color(0xFF01082E),
   });
 
   @override

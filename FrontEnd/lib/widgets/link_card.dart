@@ -19,7 +19,7 @@ class LinkCard extends StatelessWidget {
         height: 120,
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Color(0xFF2D2D2D),
+          color: Color(0xFF01072C),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: Colors.grey[800]!),
         ),

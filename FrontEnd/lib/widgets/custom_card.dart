@@ -97,7 +97,7 @@ class CustomCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onPressed,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFF404040),
+                backgroundColor: Color(0xFF000419),
                 foregroundColor: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 12),
                 shape: RoundedRectangleBorder(
