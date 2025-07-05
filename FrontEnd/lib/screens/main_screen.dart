@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:it_agent/utils/colors.dart';
-import 'package:it_agent/screens/home_view.dart';
-import 'package:it_agent/screens/browse_view.dart';
-import 'package:it_agent/screens/notification_view.dart';
-import 'package:it_agent/screens/history_view.dart';
+import 'package:it_agent/view_screens/home_view.dart';
+import 'package:it_agent/view_screens/notification_view.dart';
+import 'package:it_agent/view_screens/history_view.dart';
+
+import '../view_screens/browse_view.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
