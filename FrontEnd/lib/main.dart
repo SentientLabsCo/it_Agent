@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:it_agent/screens/main_screen.dart';
+import 'package:it_agent/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       // routes: {
       //   '/': (context) => const LoginScreen(),
       // },
-      home: const MainScreen(),
+      home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
