@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:it_agent/utils/colors.dart';
 import 'package:it_agent/widgets/section_header.dart';
@@ -15,10 +17,6 @@ class BrowseView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Container(
-            //   height: 100,
-            //   decoration: BoxDecoration(gradient: headerGradient),
-            // ),
             Padding(
               padding: EdgeInsets.all(32.0),
               child: Column(
