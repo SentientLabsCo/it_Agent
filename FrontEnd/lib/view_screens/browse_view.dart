@@ -15,10 +15,10 @@ class BrowseView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: 100,
-              decoration: BoxDecoration(gradient: headerGradient),
-            ),
+            // Container(
+            //   height: 100,
+            //   decoration: BoxDecoration(gradient: headerGradient),
+            // ),
             Padding(
               padding: EdgeInsets.all(32.0),
               child: Column(
@@ -219,25 +219,25 @@ class BrowseView extends StatelessWidget {
         Row(
           children: [
             LinkCard(
-              title: 'Mac Support',
+              title: 'Contact Support',
               icon: Icons.support_agent,
               color: Colors.blue,
             ),
             SizedBox(width: 20),
             LinkCard(
-              title: 'Mac Support',
+              title: 'Contact Support',
               icon: Icons.support_agent,
               color: Colors.blue,
             ),
             SizedBox(width: 20),
             LinkCard(
-              title: 'Mac Support',
+              title: 'Contact Support',
               icon: Icons.support_agent,
               color: Colors.blue,
             ),
             SizedBox(width: 20),
             LinkCard(
-              title: 'Mac Support',
+              title: 'Contact Support',
               icon: Icons.support_agent,
               color: Colors.blue,
             ),
