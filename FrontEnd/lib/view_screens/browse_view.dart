@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:it_agent/utils/colors.dart';
+import 'package:it_agent/widgets/internet_speed_dialog.dart';
 import 'package:it_agent/widgets/section_header.dart';
 import '../widgets/category_button.dart';
 import '../widgets/custom_card.dart';
@@ -23,7 +24,7 @@ class BrowseView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Featured Section
-                  _buildFeaturedSection(),
+                  _buildFeaturedSection(context),
                   SizedBox(height: 40),
 
                   // Browse Section
@@ -42,7 +43,7 @@ class BrowseView extends StatelessWidget {
     );
   }
 
-  Widget _buildFeaturedSection() {
+  Widget _buildFeaturedSection(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -72,7 +73,13 @@ class BrowseView extends StatelessWidget {
                 icon: Icons.wifi,
                 iconColor: Colors.blueAccent,
                 buttonText: 'Run',
-                onPressed: () => print('Run Fix wifi'),
+                onPressed: () {
+                  print('Run Fix wifi');
+                  showDialog(
+                    context: context,
+                    builder: (context) => InternetSpeedDialog(),
+                  );
+                },
               ),
             ),
             SizedBox(width: 20),
@@ -198,10 +205,7 @@ class BrowseView extends StatelessWidget {
               children: [
                 Text(
                   '4 Results',
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    fontSize: 16,
-                  ),
+                  style: TextStyle(color: Colors.grey[400], fontSize: 16),
                 ),
                 SizedBox(width: 16),
                 Icon(Icons.chevron_left, color: Colors.grey[400]),
@@ -240,7 +244,6 @@ class BrowseView extends StatelessWidget {
               color: Colors.blue,
             ),
             SizedBox(width: 20),
-
           ],
         ),
       ],
