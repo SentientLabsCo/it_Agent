@@ -2,7 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:it_agent/utils/colors.dart';
-import 'package:it_agent/widgets/internet_speed_dialog.dart';
+import 'package:it_agent/widgets/clear_cache_dialog.dart';
+import 'package:it_agent/widgets/internet_check_dialog.dart';
 import 'package:it_agent/widgets/section_header.dart';
 import '../widgets/category_button.dart';
 import '../widgets/custom_card.dart';
@@ -59,11 +60,17 @@ class BrowseView extends StatelessWidget {
           children: [
             Expanded(
               child: CustomCard(
-                title: "Computer Compliance\nCheck",
+                title: "Clear Browser\nCache",
                 icon: Icons.computer,
                 iconColor: Colors.blue,
                 buttonText: "Run",
-                onPressed: () => print('Run Computer Compliance Check'),
+                onPressed: () {
+                  print('Clear Browser Cache triggered');
+                  showDialog(
+                    context: context,
+                    builder: (context) => ClearCacheDialog(),
+                  );
+                },
               ),
             ),
             SizedBox(width: 20),

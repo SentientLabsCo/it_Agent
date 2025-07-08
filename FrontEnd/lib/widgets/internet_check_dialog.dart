@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print
 
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
