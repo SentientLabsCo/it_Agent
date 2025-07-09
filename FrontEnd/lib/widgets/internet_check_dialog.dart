@@ -23,11 +23,9 @@ class _InternetSpeedDialogState extends State<InternetSpeedDialog> {
   void initState() {
     super.initState();
     _checkInternetStepsSequentially();
-
   }
 
   Future<void> _checkInternetStepsSequentially() async {
-
     setState(() {
       isDeviceConnected = null;
       isInternetAccessible = null;
@@ -36,7 +34,8 @@ class _InternetSpeedDialogState extends State<InternetSpeedDialog> {
       isStep2Running = false;
     });
 
-    final deviceConnected = await _internetService.checkDeviceConnectionWithDelay();
+    final deviceConnected = await _internetService
+        .checkDeviceConnectionWithDelay();
 
     setState(() {
       isDeviceConnected = deviceConnected;
@@ -61,13 +60,9 @@ class _InternetSpeedDialogState extends State<InternetSpeedDialog> {
         isDone = true;
       });
     }
-
-    
-
-    
   }
 
- Widget _buildStatusRow(String title, bool? status, bool isRunning) {
+  Widget _buildStatusRow(String title, bool? status, bool isRunning) {
     Widget icon;
     if (isRunning) {
       // Show animated loading indicator when step is running
@@ -144,17 +139,28 @@ class _InternetSpeedDialogState extends State<InternetSpeedDialog> {
                 isStep2Running,
               ),
               const SizedBox(height: 24),
-              if (isDone)
+              if (isStep1Running || isStep2Running)
                 Center(
                   child: Text(
-                    (isDeviceConnected == true &&
-                            isInternetAccessible == true)
+                    'Please wait...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                )
+              else if (isDone)
+                Center(
+                  child: Text(
+                    (isDeviceConnected == true && isInternetAccessible == true)
                         ? '✅ Internet connectivity is fine.'
                         : '❌ Internet issue detected.',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: (isDeviceConnected == true &&
+                      color:
+                          (isDeviceConnected == true &&
                               isInternetAccessible == true)
                           ? Colors.green
                           : Colors.red,
@@ -164,9 +170,11 @@ class _InternetSpeedDialogState extends State<InternetSpeedDialog> {
               if (isDone) ...[
                 const SizedBox(height: 16),
                 TextButton.icon(
-                  onPressed: () {
-                    _checkInternetStepsSequentially();
-                  },
+                  onPressed: (isStep1Running || isStep2Running)
+                      ? null
+                      : () {
+                          _checkInternetStepsSequentially();
+                        },
                   icon: const Icon(Icons.refresh),
                   label: const Text("Retry"),
                 ),
