@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:it_agent/screens/main_screen.dart';
+import 'package:it_agent/screens/home_screen.dart';
 import 'package:it_agent/utils/colors.dart';
 import 'package:it_agent/widgets/custom_button.dart';
 
