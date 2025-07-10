@@ -12,7 +12,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "flutter/Debug/flutter_wrapper_app.lib"
+			"path" : "flutter/Debug/flutter_wrapper_plugin.lib"
 		}
 	],
 	"backtrace" : 1,
@@ -43,19 +43,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 75,
+				"line" : 59,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 84,
+				"line" : 72,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 79,
+				"line" : 63,
 				"parent" : 0
 			},
 			{
@@ -94,13 +94,13 @@
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 81,
+				"line" : 69,
 				"parent" : 0
 			},
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 80,
+				"line" : 68,
 				"parent" : 0
 			},
 			{
@@ -179,24 +179,23 @@
 			[
 				0,
 				1,
-				2,
-				3
+				2
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
-			"id" : "flutter_assemble::@2bb09fbb03a373b2cb34"
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+			"backtrace" : 2,
+			"id" : "flutter_assemble::@2bb09fbb03a373b2cb34"
 		}
 	],
-	"id" : "flutter_wrapper_app::@2bb09fbb03a373b2cb34",
-	"name" : "flutter_wrapper_app",
-	"nameOnDisk" : "flutter_wrapper_app.lib",
+	"id" : "flutter_wrapper_plugin::@2bb09fbb03a373b2cb34",
+	"name" : "flutter_wrapper_plugin",
+	"nameOnDisk" : "flutter_wrapper_plugin.lib",
 	"paths" : 
 	{
 		"build" : "flutter",
@@ -210,15 +209,14 @@
 			[
 				0,
 				1,
-				2,
-				3
+				2
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				4
+				3
 			]
 		}
 	],
@@ -242,14 +240,7 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "flutter/ephemeral/cpp_client_wrapper/flutter_engine.cc",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"isGenerated" : true,
-			"path" : "flutter/ephemeral/cpp_client_wrapper/flutter_view_controller.cc",
+			"path" : "flutter/ephemeral/cpp_client_wrapper/plugin_registrar.cc",
 			"sourceGroupIndex" : 0
 		},
 		{
