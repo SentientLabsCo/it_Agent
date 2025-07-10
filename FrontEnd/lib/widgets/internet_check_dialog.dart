@@ -1,8 +1,7 @@
-// ignore_for_file: avoid_print
+// check_internet_dialog.dart
 
 import 'package:flutter/material.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:http/http.dart' as http;
+import 'package:it_agent/services/check_internet_service.dart';
 
 class InternetSpeedDialog extends StatefulWidget {
   const InternetSpeedDialog({super.key});
@@ -15,55 +14,67 @@ class _InternetSpeedDialogState extends State<InternetSpeedDialog> {
   bool? isDeviceConnected;
   bool? isInternetAccessible;
   bool isDone = false;
+  bool isStep1Running = false;
+  bool isStep2Running = false;
+
+  final InternetCheckService _internetService = InternetCheckService();
 
   @override
   void initState() {
     super.initState();
-    _checkInternetSteps();
+    _checkInternetStepsSequentially();
   }
 
-  Future<void> _checkInternetSteps() async {
-    final deviceConnected = await _checkDeviceConnection();
-    final internet = deviceConnected ? await _pingGoogle() : false;
+  Future<void> _checkInternetStepsSequentially() async {
+    setState(() {
+      isDeviceConnected = null;
+      isInternetAccessible = null;
+      isDone = true;
+      isStep1Running = true;
+      isStep2Running = false;
+    });
+
+    final deviceConnected = await _internetService
+        .checkDeviceConnectionWithDelay();
 
     setState(() {
       isDeviceConnected = deviceConnected;
-      isInternetAccessible = internet;
-      isDone = true;
+      isStep1Running = false;
     });
-  }
 
-Future<bool> _checkDeviceConnection() async {
-  final connectivityResults = await Connectivity().checkConnectivity();
-  
-  // Check if any of the connection types indicate active connectivity
-  for (final result in connectivityResults) {
-    if (result == ConnectivityResult.wifi ||
-        result == ConnectivityResult.ethernet) {
-      print("Active connection found: $result");
-      return true;
-    }
-  }
-  print("No active connections found");
-  return false;
-}
+    if (deviceConnected) {
+      setState(() {
+        isStep2Running = true;
+      });
 
-  Future<bool> _pingGoogle() async {
-    try {
-      final response = await http
-          .get(Uri.parse('https://www.google.com'))
-          .timeout(Duration(seconds: 10));
-      print("Ping response: ${response.statusCode}");
-      return response.statusCode == 200;
-    } catch (e) {
-      print("Ping failed: $e");
-      return false;
+      final internetAccessible = await _internetService.pingSiteWithDelay();
+
+      setState(() {
+        isInternetAccessible = internetAccessible;
+        isStep2Running = false;
+        isDone = true;
+      });
+    } else {
+      setState(() {
+        isInternetAccessible = false;
+        isDone = true;
+      });
     }
   }
 
-  Widget _buildStatusRow(String title, bool? status) {
-    Icon icon;
-    if (status == null) {
+  Widget _buildStatusRow(String title, bool? status, bool isRunning) {
+    Widget icon;
+    if (isRunning) {
+      // Show animated loading indicator when step is running
+      icon = const SizedBox(
+        width: 24,
+        height: 24,
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+          valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+        ),
+      );
+    } else if (status == null) {
       icon = const Icon(Icons.hourglass_top, color: Colors.orange);
     } else if (status) {
       icon = const Icon(Icons.check_circle, color: Colors.green);
@@ -75,9 +86,15 @@ Future<bool> _checkDeviceConnection() async {
       children: [
         icon,
         const SizedBox(width: 12),
-        Text(
-          title,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        Expanded(
+          child: Text(
+            title,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: isRunning ? Colors.blue : Colors.black,
+            ),
+          ),
         ),
       ],
     );
@@ -106,15 +123,34 @@ Future<bool> _checkDeviceConnection() async {
                   IconButton(
                     icon: const Icon(Icons.close),
                     onPressed: () => Navigator.of(context).pop(),
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: 24),
-              _buildStatusRow("1. Checking device connection...", isDeviceConnected),
+              _buildStatusRow(
+                "1. Checking device connection...",
+                isDeviceConnected,
+                isStep1Running,
+              ),
               const SizedBox(height: 16),
-              _buildStatusRow("2. Pinging www.google.com...", isInternetAccessible),
+              _buildStatusRow(
+                "2. Pinging www.google.com...",
+                isInternetAccessible,
+                isStep2Running,
+              ),
               const SizedBox(height: 24),
-              if (isDone)
+              if (isStep1Running || isStep2Running)
+                Center(
+                  child: Text(
+                    'Please wait...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                )
+              else if (isDone)
                 Center(
                   child: Text(
                     (isDeviceConnected == true && isInternetAccessible == true)
@@ -123,7 +159,9 @@ Future<bool> _checkDeviceConnection() async {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: (isDeviceConnected == true && isInternetAccessible == true)
+                      color:
+                          (isDeviceConnected == true &&
+                              isInternetAccessible == true)
                           ? Colors.green
                           : Colors.red,
                     ),
@@ -132,18 +170,15 @@ Future<bool> _checkDeviceConnection() async {
               if (isDone) ...[
                 const SizedBox(height: 16),
                 TextButton.icon(
-                  onPressed: () {
-                    setState(() {
-                      isDeviceConnected = null;
-                      isInternetAccessible = null;
-                      isDone = false;
-                    });
-                    _checkInternetSteps();
-                  },
-                  icon: Icon(Icons.refresh),
-                  label: Text("Retry"),
+                  onPressed: (isStep1Running || isStep2Running)
+                      ? null
+                      : () {
+                          _checkInternetStepsSequentially();
+                        },
+                  icon: const Icon(Icons.refresh),
+                  label: const Text("Retry"),
                 ),
-              ]
+              ],
             ],
           ),
         ),
