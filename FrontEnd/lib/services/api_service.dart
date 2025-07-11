@@ -1,3 +1,10 @@
+/* 
+This is a Dart service class for making API calls to a backend server.
+It includes methods for sending messages to the server and checking the server's health status.
+It uses the http package for making HTTP requests and handles JSON encoding/decoding.
+Author: [MD Sarfaraz Akbar]
+*/
+
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 

@@ -1,3 +1,9 @@
+/*
+This is a Dart file that defines color constants and gradients used in the Flutter application.
+It includes colors for the background, buttons, chips, fonts, drawer, and cards.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'package:flutter/material.dart';
 
 const backgroundColor = Color.fromRGBO(0, 4, 32, 1.0);

@@ -1,3 +1,9 @@
+/*
+This is a link card widget used in browse_view.dart file.
+and it is used to display a link with an icon and title.
+Written by: [Arpit Raghuvanshi]
+ */
+
 import 'package:flutter/material.dart';
 
 class LinkCard extends StatelessWidget {

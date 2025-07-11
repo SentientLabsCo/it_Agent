@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:'IT Agent',
+      title: 'IT Assistant',
       // routes: {
       //   '/': (context) => const LoginScreen(),
       // },

@@ -1,3 +1,10 @@
+/*
+This is a browse screen widget used in the IT Agent application.
+It displays various sections like Featured, Browse, and Links with interactive elements.
+Which provides vide range IT related functionalities.
+Written by: [Arpit Raghuvanshi]
+*/
+
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
@@ -9,8 +16,8 @@ import '../widgets/category_button.dart';
 import '../widgets/custom_card.dart';
 import '../widgets/link_card.dart';
 
-class BrowseView extends StatelessWidget {
-  const BrowseView({super.key});
+class BrowseScreen extends StatelessWidget {
+  const BrowseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

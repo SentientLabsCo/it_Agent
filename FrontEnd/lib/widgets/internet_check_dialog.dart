@@ -1,4 +1,9 @@
-// check_internet_dialog.dart
+/*
+This widget displays a dialog that checks if the device is connected to the internet
+and if it can access a specific website.
+Written by: [Arpit Raghuvanshi]
+Date: [July 6 2025]
+ */
 
 import 'package:flutter/material.dart';
 import 'package:it_agent/services/check_internet_service.dart';

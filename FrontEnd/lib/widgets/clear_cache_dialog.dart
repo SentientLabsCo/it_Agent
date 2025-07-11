@@ -1,4 +1,10 @@
-// clear_cache_dialog.dart
+/*
+This is a Flutter widget for clearing browser cache.
+It allows users to select installed browsers and clear their cache.
+It displays a list of browsers with their cache directories and provides a button to clear the cache.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'package:flutter/material.dart';
 import 'package:it_agent/services/browser_cache_service.dart';
 

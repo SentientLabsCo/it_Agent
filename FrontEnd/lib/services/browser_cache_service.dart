@@ -1,3 +1,10 @@
+/* 
+This is a Dart service class for managing browser cache.
+It provides functionality to find installed browsers, clear their cache, and retrieve browser information.
+It supports multiple platforms including Windows, macOS, and Linux.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'dart:io';
 import 'package:path/path.dart' as p;
 

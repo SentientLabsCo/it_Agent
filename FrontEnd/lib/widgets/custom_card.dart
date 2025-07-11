@@ -1,3 +1,10 @@
+/*
+This is a Flutter widget for creating a custom card.
+It allows displaying a title, an icon, and an optional button.
+The card can be styled as compact or full layout.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'package:flutter/material.dart';
 import 'package:it_agent/utils/colors.dart';
 

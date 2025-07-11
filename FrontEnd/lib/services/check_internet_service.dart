@@ -1,5 +1,12 @@
-// ignore_for_file: avoid_print, unrelated_type_equality_checks
+/*
+This is a Dart service class for checking internet connectivity.
+It provides methods to check if the device is connected to WiFi or Ethernet,
+ping a site to verify internet accessibility, and check the overall internet status.
+It uses the connectivity_plus package for checking connectivity and the http package for pinging a site.
+Author: [Arpit Raghuvanshi]
+*/
 
+// ignore_for_file: avoid_print, unrelated_type_equality_checks
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 
