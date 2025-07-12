@@ -1,10 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:it_agent/utils/colors.dart';
-import 'package:it_agent/view_screens/home_view.dart';
-import 'package:it_agent/view_screens/notification_view.dart';
-import 'package:it_agent/view_screens/history_view.dart';
+/* 
+This is a Flutter widget for the main screen.
+It serves as a container for different sections of the application,
+including Home, Browse, Notification, and History screens.
+It uses a sidebar for navigation and an IndexedStack to switch between screens.
+The sidebar allows users to select which screen to view,
+Author: [Arpit Raghuvanshi]
+*/
 
-import '../view_screens/browse_view.dart';
+import 'package:flutter/material.dart';
+import 'package:it_agent/screens/home_screen.dart';
+import 'package:it_agent/screens/notification_screen.dart';
+import 'package:it_agent/utils/colors.dart';
+import 'package:it_agent/screens/history_screen.dart';
+
+import 'browse_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -16,10 +25,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int selectedIndex = 0;
   final List<Widget> screens = [
-    HomeView(),
-    BrowseView(),
-    NotificationView(),
-    HistoryView(),
+    HomeScreen(),
+    BrowseScreen(),
+    NotificationScreen(),
+    HistoryScreen(),
   ];
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,11 @@
+/*
+This is a Flutter widget for the chat input bar.
+It allows users to type messages, send them, and select a response type from a dropdown.
+It includes a text input field, a send button, and a dropdown menu for selecting the response type.
+Also working functionality for sending messages is need to be implemented.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'package:flutter/material.dart';
 
 class ChatInputBar extends StatefulWidget {

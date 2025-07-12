@@ -1,15 +1,26 @@
+/*
+This is a Flutter widget for the home screen of an IT support application.
+It includes a greeting based on the time of day, a list of action suggestions,
+and a chat input bar for user interaction.
+The widget maintains a list of messages and allows users to send messages
+to the bot, which responds with a simple echo of the user's input.
+This file is part of the IT Agent project.
+It is designed to provide a user-friendly interface for IT support interactions.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'package:flutter/material.dart';
 import 'package:it_agent/utils/colors.dart';
 import 'package:it_agent/widgets/chat_input_bar.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _textEditingController = TextEditingController();
   final List<Map<String, String>> _messages = [];
 

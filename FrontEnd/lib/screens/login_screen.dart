@@ -1,9 +1,18 @@
+/*
+This is a Flutter widget for the login screen.
+It includes fields for the user to enter their work email and password,
+and a button to sign in.
+The widget uses an animated text kit to welcome the user.
+The login functionality is currently a placeholder and should be implemented
+as per the application's authentication requirements.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:it_agent/screens/main_screen.dart';
 import 'package:it_agent/utils/colors.dart';
 import 'package:it_agent/widgets/custom_button.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -47,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ],
-                totalRepeatCount: 5,
+                totalRepeatCount: 1,
                 //pause: const Duration(milliseconds: 1000),
                 displayFullTextOnTap: true,
                 stopPauseOnTap: true,

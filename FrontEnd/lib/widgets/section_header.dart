@@ -1,3 +1,8 @@
+/*
+This is a section header widget that displays a title and result count.
+Written by: [Arpit Raghuvanshi]
+ */
+
 import 'package:flutter/material.dart';
 
 class SectionHeader extends StatelessWidget {

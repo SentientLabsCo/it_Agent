@@ -1,3 +1,10 @@
+/*
+This is a Flutter widget for a category button.
+It is designed to be used in a grid layout, allowing users to select different categories.
+It includes a text label, an icon, and customizable colors for the background, text, and border.
+Author: [Arpit Raghuvanshi]
+ */
+
 import 'package:flutter/material.dart';
 
 class CategoryButton extends StatelessWidget {

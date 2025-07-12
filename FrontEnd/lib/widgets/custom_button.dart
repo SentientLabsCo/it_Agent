@@ -1,3 +1,9 @@
+/*
+This is a Flutter widget for a custom button.
+It allows customization of the button's text, width, height, color, and onPressed callback.
+Author: [Arpit Raghuvanshi]
+*/
+
 import 'package:flutter/material.dart';
 import 'package:it_agent/utils/colors.dart';
 
