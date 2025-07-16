@@ -11,11 +11,13 @@ import 'package:flutter/material.dart';
 class ChatInputBar extends StatefulWidget {
   final TextEditingController textController;
   final VoidCallback onSend;
+  final bool isLoading;
 
   const ChatInputBar({
     super.key,
     required this.textController,
     required this.onSend,
+    this.isLoading = false,
   });
 
   @override
@@ -23,7 +25,6 @@ class ChatInputBar extends StatefulWidget {
 }
 
 class _ChatInputBarState extends State<ChatInputBar> {
-
   static const dropDownItem = ['Quick Response', 'Detailed'];
   String selectedValue = dropDownItem[0];
 
@@ -60,36 +61,45 @@ class _ChatInputBarState extends State<ChatInputBar> {
                 ),
               ),
               IconButton(
-                icon: const Icon(Icons.send_rounded, color: Colors.white),
-                onPressed: () {}, // Voice input
+                icon: widget.isLoading
+                    ? const SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Colors.white,
+                          ),
+                        ),
+                      )
+                    : const Icon(Icons.send_rounded, color: Colors.white),
+                onPressed: widget.isLoading ? null : widget.onSend,
               ),
-            ]
+            ],
           ),
           const SizedBox(height: 8),
           //Dropdown for Response Type
           DropdownButton<String>(
             dropdownColor: const Color(0xFF1A1A2E),
             value: selectedValue,
-            items: dropDownItem.map((item){
+            items: dropDownItem.map((item) {
               return DropdownMenuItem(
                 value: item,
                 child: Text(item, style: const TextStyle(color: Colors.white)),
-
               );
             }).toList(),
-            onChanged: (value){
-              if (value != null){
-                setState((){
+            onChanged: (value) {
+              if (value != null) {
+                setState(() {
                   selectedValue = value;
                 });
               }
             },
             underline: const SizedBox(),
             iconEnabledColor: Colors.white,
-          )
+          ),
         ],
       ),
     );
   }
 }
-

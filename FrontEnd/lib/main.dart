@@ -14,8 +14,8 @@ void main() async{
     center: true,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
-    titleBarStyle: TitleBarStyle.hidden,
-    windowButtonVisibility: false,
+    //titleBarStyle: TitleBarStyle.hidden,
+    //windowButtonVisibility: false,
     fullScreen: Platform.isMacOS,
     minimumSize: Size(800, 600)
   );

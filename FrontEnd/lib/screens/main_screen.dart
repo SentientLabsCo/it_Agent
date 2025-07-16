@@ -37,16 +37,16 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           //Sidebar Area
           Container(
-            width: 220,
+            width: 300,
             color: drawerColor,
             child: Column(
               children: [
-                const SizedBox(height: 50),
+                const SizedBox(height: 25),
                 const Text(
                   "IT Assistant",
                   style: TextStyle(
                     color: fontColor,
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
